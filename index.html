@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bharat Rozgar Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* GIGW Friendly High Contrast Colors */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: #000000; /* High contrast */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #002147; /* Dark Blue */
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        nav a:focus,
+        nav a:hover {
+            outline: 3px solid #ffcc00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .job-card {
+            border: 2px solid #002147;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #002147;
+            color: #ffffff;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:focus,
+        button:hover {
+            outline: 3px solid #ffcc00;
+        }
+
+        footer {
+            background-color: #002147;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Skip to Content (Accessibility Feature) -->
+    <a href="#maincontent" tabindex="1">Skip to Main Content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <h1>Bharat Rozgar Portal</h1>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <a href="#" tabindex="2">Home</a>
+            <a href="#" tabindex="3">Jobs</a>
+            <a href="#" tabindex="4">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="maincontent" role="main">
+
+        <section aria-labelledby="latest-jobs">
+            <h2 id="latest-jobs">Latest Government Jobs</h2>
+
+            <!-- Job Card -->
+            <article class="job-card" tabindex="5">
+                <h3>Junior Engineer (Civil)</h3>
+                <p><strong>Department:</strong> Public Works Department</p>
+                <p><strong>Location:</strong> Delhi</p>
+
+                <button 
+                    aria-label="Apply for Junior Engineer Civil Job"
+                    tabindex="6">
+                    Apply Now
+                </button>
+            </article>
+
+            <!-- Job Card -->
+            <article class="job-card" tabindex="7">
+                <h3>Data Entry Operator</h3>
+                <p><strong>Department:</strong> Ministry of IT</p>
+                <p><strong>Location:</strong> Mumbai</p>
+
+                <button 
+                    aria-label="Apply for Data Entry Operator Job"
+                    tabindex="8">
+                    Apply Now
+                </button>
+            </article>
+
+        </section>
+
+        <!-- Informational Banner Image -->
+        <section>
+            <h2>Recruitment Notice</h2>
+
+            <img 
+                src="banner.jpg" 
+                alt="Government Recruitment Notification Banner"
+                width="100%"
+                tabindex="9">
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2026 Bharat Rozgar Portal | Government of India</p>
+    </footer>
+
+</body>
+</html>
