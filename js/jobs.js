@@ -7,16 +7,27 @@ let allJobs = [];
 let currentPage = 1;
 const jobsPerPage = 5;
 
-// Fetch Jobs
+// Safe Fetch
 fetch("jobs.json")
-    .then(res => res.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("jobs.json file not found (404)");
+        }
+        return response.json();
+    })
     .then(data => {
         allJobs = data;
         displayJobs();
+    })
+    .catch(error => {
+        console.error("Fetch Error:", error);
+        jobList.innerHTML = "<p style='color:red;'>Failed to load jobs data.</p>";
     });
 
-// Filter + Search + Pagination Logic
+// Main Display Function
 function displayJobs() {
+
+    if (!categoryFilter || !searchInput) return;
 
     const selectedCategory = categoryFilter.value;
     const searchText = searchInput.value.toLowerCase();
@@ -62,7 +73,7 @@ function displayJobs() {
     createPagination(totalPages);
 }
 
-// Pagination Buttons
+// Pagination
 function createPagination(totalPages) {
     pagination.innerHTML = "";
 
@@ -78,13 +89,17 @@ function changePage(page) {
     displayJobs();
 }
 
-// Event Listeners
-categoryFilter.addEventListener("change", () => {
-    currentPage = 1;
-    displayJobs();
-});
+// Event Listeners (safe check)
+if (categoryFilter) {
+    categoryFilter.addEventListener("change", () => {
+        currentPage = 1;
+        displayJobs();
+    });
+}
 
-searchInput.addEventListener("input", () => {
-    currentPage = 1;
-    displayJobs();
-});
+if (searchInput) {
+    searchInput.addEventListener("input", () => {
+        currentPage = 1;
+        displayJobs();
+    });
+}
