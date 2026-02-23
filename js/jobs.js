@@ -1,66 +1,90 @@
-let jobs = [];
+const jobList = document.getElementById("job-list");
+const categoryFilter = document.getElementById("categoryFilter");
+const searchInput = document.getElementById("searchInput");
+const pagination = document.getElementById("pagination");
+
+let allJobs = [];
 let currentPage = 1;
 const jobsPerPage = 5;
-let selectedCategory = "all";
 
+// Fetch Jobs
 fetch("jobs.json")
-  .then(response => response.json())
-  .then(data => {
-    jobs = data;
-    renderJobs();
-  });
-
-document.getElementById("categoryFilter").addEventListener("change", function () {
-  selectedCategory = this.value;
-  currentPage = 1;
-  renderJobs();
-});
-
-function renderJobs() {
-  const container = document.getElementById("job-list");
-  container.innerHTML = "";
-
-  let filteredJobs = selectedCategory === "all"
-    ? jobs
-    : jobs.filter(job => job.department === selectedCategory);
-
-  const start = (currentPage - 1) * jobsPerPage;
-  const paginatedJobs = filteredJobs.slice(start, start + jobsPerPage);
-
-  paginatedJobs.forEach(job => {
-    const jobCard = document.createElement("div");
-    jobCard.className = "job-card";
-    jobCard.innerHTML = `
-      <h3>${job.title}</h3>
-      <p><strong>Department:</strong> ${job.department}</p>
-      <p><strong>Location:</strong> ${job.location}</p>
-      <button>Apply Now</button>
-    `;
-    container.appendChild(jobCard);
-  });
-
-  renderPagination(filteredJobs.length);
-}
-
-function renderPagination(totalJobs) {
-  const pagination = document.getElementById("pagination");
-  pagination.innerHTML = "";
-
-  const totalPages = Math.ceil(totalJobs / jobsPerPage);
-
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.innerText = i;
-
-    if (i === currentPage) {
-      btn.style.fontWeight = "bold";
-    }
-
-    btn.addEventListener("click", function () {
-      currentPage = i;
-      renderJobs();
+    .then(res => res.json())
+    .then(data => {
+        allJobs = data;
+        displayJobs();
     });
 
-    pagination.appendChild(btn);
-  }
+// Filter + Search + Pagination Logic
+function displayJobs() {
+
+    const selectedCategory = categoryFilter.value;
+    const searchText = searchInput.value.toLowerCase();
+
+    let filteredJobs = allJobs.filter(job => {
+
+        const matchCategory =
+            selectedCategory === "all" ||
+            job.department === selectedCategory;
+
+        const matchSearch =
+            job.title.toLowerCase().includes(searchText) ||
+            job.department.toLowerCase().includes(searchText);
+
+        return matchCategory && matchSearch;
+    });
+
+    const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+
+    const start = (currentPage - 1) * jobsPerPage;
+    const end = start + jobsPerPage;
+
+    const paginatedJobs = filteredJobs.slice(start, end);
+
+    jobList.innerHTML = "";
+
+    if (paginatedJobs.length === 0) {
+        jobList.innerHTML = "<p>No jobs found.</p>";
+        pagination.innerHTML = "";
+        return;
+    }
+
+    paginatedJobs.forEach(job => {
+        jobList.innerHTML += `
+            <div class="job-card">
+                <h3>${job.title}</h3>
+                <p><strong>Department:</strong> ${job.department}</p>
+                <p><strong>Last Date:</strong> ${job.lastDate}</p>
+            </div>
+        `;
+    });
+
+    createPagination(totalPages);
 }
+
+// Pagination Buttons
+function createPagination(totalPages) {
+    pagination.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `
+            <button onclick="changePage(${i})">${i}</button>
+        `;
+    }
+}
+
+function changePage(page) {
+    currentPage = page;
+    displayJobs();
+}
+
+// Event Listeners
+categoryFilter.addEventListener("change", () => {
+    currentPage = 1;
+    displayJobs();
+});
+
+searchInput.addEventListener("input", () => {
+    currentPage = 1;
+    displayJobs();
+});
