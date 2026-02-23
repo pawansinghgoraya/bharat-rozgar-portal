@@ -1,66 +1,185 @@
-/* GIGW Friendly High Contrast Colors */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            color: #000000; /* High contrast */
-            line-height: 1.6;
-        }
+/* ===============================
+   GIGW Friendly High Contrast Theme
+================================== */
 
-        header {
-            background-color: #002147; /* Dark Blue */
-            color: #ffffff;
-            padding: 15px;
-        }
+/* Base Reset */
+* {
+    box-sizing: border-box;
+}
 
-        nav a {
-            color: #ffffff;
-            margin-right: 15px;
-            text-decoration: none;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #000000; /* High contrast */
+    line-height: 1.6;
+}
 
-        nav a:focus,
-        nav a:hover {
-            outline: 3px solid #ffcc00;
-        }
+/* ===============================
+   Header
+================================== */
 
-        main {
-            padding: 20px;
-        }
+header {
+    background-color: #002147; /* Dark Blue */
+    color: #ffffff;
+    padding: 15px;
+}
 
-        .filter-section {
-        margin-bottom: 20px;
-        }
+header h1 {
+    margin: 0;
+}
 
-        #pagination button {
-          margin: 5px;
-          padding: 6px 12px;
-          cursor: pointer;
-        }
+/* ===============================
+   Navigation
+================================== */
 
-        .job-card {
-            border: 2px solid #002147;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
+nav {
+    margin-top: 8px;
+}
 
-        button {
-            background-color: #002147;
-            color: #ffffff;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-        }
+nav a {
+    color: #ffffff;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        button:focus,
-        button:hover {
-            outline: 3px solid #ffcc00;
-        }
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
 
-        footer {
-            background-color: #002147;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
-        }
+/* Universal Focus Accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+/* ===============================
+   Main Layout
+================================== */
+
+main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   Job Card
+================================== */
+
+.job-card {
+    border: 2px solid #002147;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.job-card:hover {
+    background-color: #eef3f8;
+}
+
+.job-card h3 {
+    margin-top: 0;
+}
+
+/* ===============================
+   Buttons
+================================== */
+
+button {
+    background-color: #002147;
+    color: #ffffff;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+/* Pagination */
+
+#pagination button {
+    margin: 5px;
+}
+
+#pagination button.active {
+    background-color: #ffcc00;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* ===============================
+   Footer
+================================== */
+
+footer {
+    background-color: #002147;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ===============================
+   Print Friendly (Government Requirement)
+================================== */
+
+@media print {
+
+    header,
+    nav,
+    footer,
+    .filter-section,
+    #pagination {
+        display: none;
+    }
+
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .job-card {
+        border: 1px solid #000000;
+    }
+}
+
+/* ===============================
+   Responsive Support
+================================== */
+
+@media (max-width: 768px) {
+
+    nav a {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .job-card {
+        padding: 12px;
+    }
+}
