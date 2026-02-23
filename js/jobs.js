@@ -1,50 +1,66 @@
-document.addEventListener("DOMContentLoaded", () => {
+let jobs = [];
+let currentPage = 1;
+const jobsPerPage = 5;
+let selectedCategory = "all";
 
-  const jobList = document.getElementById("job-list");
+fetch("jobs.json")
+  .then(response => response.json())
+  .then(data => {
+    jobs = data;
+    renderJobs();
+  });
 
-  if (!jobList) return;
+document.getElementById("categoryFilter").addEventListener("change", function () {
+  selectedCategory = this.value;
+  currentPage = 1;
+  renderJobs();
+});
 
-  fetch("data/jobs.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Failed to load JSON");
-      }
-      return response.json();
-    })
-    .then(data => {
-      renderJobs(data);
-    })
-    .catch(error => {
-      jobList.innerHTML = "<p>Unable to load jobs.</p>";
-      console.error(error);
-    });
+function renderJobs() {
+  const container = document.getElementById("job-list");
+  container.innerHTML = "";
 
-  function renderJobs(jobs) {
-    jobList.innerHTML = "";
+  let filteredJobs = selectedCategory === "all"
+    ? jobs
+    : jobs.filter(job => job.department === selectedCategory);
 
-    if (jobs.length === 0) {
-      jobList.innerHTML = "<p>No jobs available.</p>";
-      return;
+  const start = (currentPage - 1) * jobsPerPage;
+  const paginatedJobs = filteredJobs.slice(start, start + jobsPerPage);
+
+  paginatedJobs.forEach(job => {
+    const jobCard = document.createElement("div");
+    jobCard.className = "job-card";
+    jobCard.innerHTML = `
+      <h3>${job.title}</h3>
+      <p><strong>Department:</strong> ${job.department}</p>
+      <p><strong>Location:</strong> ${job.location}</p>
+      <button>Apply Now</button>
+    `;
+    container.appendChild(jobCard);
+  });
+
+  renderPagination(filteredJobs.length);
+}
+
+function renderPagination(totalJobs) {
+  const pagination = document.getElementById("pagination");
+  pagination.innerHTML = "";
+
+  const totalPages = Math.ceil(totalJobs / jobsPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+
+    if (i === currentPage) {
+      btn.style.fontWeight = "bold";
     }
 
-    jobs.forEach(job => {
-
-      const jobCard = document.createElement("article");
-      jobCard.classList.add("job-card");
-
-      jobCard.innerHTML = `
-        <h2>${job.title}</h2>
-        <p><strong>Department:</strong> ${job.department || "N/A"}</p>
-        <p><strong>Location:</strong> ${job.location}</p>
-        <p><strong>Last Date:</strong> ${job.lastDate}</p>
-        <button aria-label="Apply for ${job.title}">
-          Apply Now
-        </button>
-      `;
-
-      jobList.appendChild(jobCard);
-
+    btn.addEventListener("click", function () {
+      currentPage = i;
+      renderJobs();
     });
-  }
 
-});
+    pagination.appendChild(btn);
+  }
+}
