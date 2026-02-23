@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="jobs.html">← Back to Jobs</a>
+
+<h1 id="jobTitle"></h1>
+
+<hr>
+
+<h2>Overview</h2>
+<p><strong>Department:</strong> <span id="jobDept"></span></p>
+<p><strong>Location:</strong> <span id="jobLocation"></span></p>
+<p><strong>Total Posts:</strong> <span id="jobPosts"></span></p>
+<p><strong>Last Date:</strong> <span id="jobLastDate"></span></p>
+
+<hr>
+
+<h2>Important Dates</h2>
+<ul>
+    <li><strong>Start Date:</strong> <span id="startDate"></span></li>
+    <li><strong>Last Date:</strong> <span id="lastDate"></span></li>
+    <li><strong>Exam Date:</strong> <span id="examDate"></span></li>
+</ul>
+
+<hr>
+
+<h2>Application Fees</h2>
+<ul>
+    <li>General / OBC: <span id="feeGeneral"></span></li>
+    <li>SC / ST: <span id="feeSCST"></span></li>
+    <li>Female: <span id="feeFemale"></span></li>
+</ul>
+
+<hr>
+
+<h2>Eligibility Criteria</h2>
+<p><strong>Education:</strong> <span id="education"></span></p>
+<p><strong>Age Limit:</strong> <span id="age"></span></p>
+
+<hr>
+
+<h2>Selection Process</h2>
+<p id="selectionProcess"></p>
+
+<hr>
+
+<h2>How to Apply</h2>
+<p id="howToApply"></p>
+
+<hr>
+
+<label>
+    <input type="checkbox" id="agreeCheckbox">
+    I have read all details carefully and agree to proceed.
+</label>
+
+<br><br>
+
+<button id="applyBtn" disabled>Apply Now</button>
+
+<script src="js/job-details.js"></script>
+
+</body>
+</html>
