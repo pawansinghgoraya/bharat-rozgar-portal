@@ -8,7 +8,7 @@ let currentPage = 1;
 const jobsPerPage = 5;
 
 // Safe Fetch
-fetch("jobs.json")
+fetch("data/jobs.json")
     .then(response => {
         if (!response.ok) {
             throw new Error("jobs.json file not found (404)");
