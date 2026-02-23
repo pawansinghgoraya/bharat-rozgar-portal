@@ -61,14 +61,18 @@ function displayJobs() {
     }
 
     paginatedJobs.forEach(job => {
-        jobList.innerHTML += `
-            <div class="job-card">
-                <h3>${job.title}</h3>
-                <p><strong>Department:</strong> ${job.department}</p>
-                <p><strong>Last Date:</strong> ${job.lastDate}</p>
-            </div>
-        `;
-    });
+    jobList.innerHTML += `
+        <div class="job-card">
+            <h3>${job.title}</h3>
+            <p><strong>Department:</strong> ${job.department}</p>
+            <p><strong>Last Date:</strong> ${job.lastDate}</p>
+
+            <a href="job-details.html?id=${job.id}" class="view-btn">
+                View Details
+            </a>
+        </div>
+    `;
+});
 
     createPagination(totalPages);
 }
