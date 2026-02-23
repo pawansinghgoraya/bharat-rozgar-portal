@@ -28,6 +28,16 @@
             padding: 20px;
         }
 
+        .filter-section {
+        margin-bottom: 20px;
+        }
+
+        #pagination button {
+          margin: 5px;
+          padding: 6px 12px;
+          cursor: pointer;
+        }
+
         .job-card {
             border: 2px solid #002147;
             padding: 15px;
