@@ -62,7 +62,7 @@ function displayJobs() {
 
     paginatedJobs.forEach(job => {
     jobList.innerHTML += `
-        <div class="job-card">
+        <div class="card">
             <h3>${job.title}</h3>
             <p><strong>Department:</strong> ${job.department}</p>
             <p><strong>Last Date:</strong> ${job.lastDate}</p>
