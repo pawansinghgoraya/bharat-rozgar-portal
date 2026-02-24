@@ -142,55 +142,82 @@ const alertBox = document.getElementById("alertBox");
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
-    const nameError = document.getElementById("nameError");
-    const emailError = document.getElementById("emailError");
-    const phoneError = document.getElementById("phoneError");
-    const messageError = document.getElementById("messageError");
+    // Reset Errors
+    document.querySelectorAll(".error-text").forEach(el => el.textContent = "");
+    document.querySelectorAll("input, textarea").forEach(el => {
+        el.classList.remove("input-error");
+    });
 
-    document.querySelectorAll(".error-text").forEach(el=>el.textContent="");
-    alertBox.innerHTML="";
+    alertBox.innerHTML = "";
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const nameField = document.getElementById("name");
+    const emailField = document.getElementById("email");
+    const phoneField = document.getElementById("phone");
+    const messageField = document.getElementById("message");
     const honeypot = document.getElementById("website").value;
+
+    const name = nameField.value.trim();
+    const email = emailField.value.trim();
+    const phone = phoneField.value.trim();
+    const message = messageField.value.trim();
 
     let isValid = true;
 
+    // Honeypot Anti Spam
     if(honeypot !== ""){
         return;
     }
 
+    // Name Validation
     if(name === ""){
-        nameError.textContent="नाम आवश्यक है।";
-        isValid=false;
+        document.getElementById("nameError").textContent = "नाम आवश्यक है।";
+        nameField.classList.add("input-error");
+        nameField.focus();
+        isValid = false;
     }
 
-    const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!email.match(emailPattern)){
-        emailError.textContent="सही ईमेल दर्ज करें।";
-        isValid=false;
+        document.getElementById("emailError").textContent = "सही ईमेल दर्ज करें।";
+        emailField.classList.add("input-error");
+        if(isValid) emailField.focus();
+        isValid = false;
     }
 
-    const phonePattern=/^[6-9]\d{9}$/;
+    // Phone Validation
+    const phonePattern = /^[6-9]\d{9}$/;
     if(phone !== "" && !phone.match(phonePattern)){
-        phoneError.textContent="सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
-        isValid=false;
+        document.getElementById("phoneError").textContent = "सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
+        phoneField.classList.add("input-error");
+        if(isValid) phoneField.focus();
+        isValid = false;
     }
 
+    // Message Validation
     if(message === ""){
-        messageError.textContent="संदेश आवश्यक है।";
-        isValid=false;
+        document.getElementById("messageError").textContent = "संदेश आवश्यक है।";
+        messageField.classList.add("input-error");
+        if(isValid) messageField.focus();
+        isValid = false;
     }
 
     if(!isValid){
-        alertBox.innerHTML='<div class="error-box">कृपया फॉर्म में त्रुटियाँ सुधारें।</div>';
+        alertBox.innerHTML = '<div class="error-box">कृपया फॉर्म में त्रुटियाँ सुधारें।</div>';
         return;
     }
 
-    alertBox.innerHTML='<div class="success-box">आपका संदेश सफलतापूर्वक प्राप्त हुआ। हम शीघ्र संपर्क करेंगे।</div>';
-    form.reset();
+    // Simulated Processing
+    const submitBtn = form.querySelector("button");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "भेजा जा रहा है...";
+
+    setTimeout(() => {
+        alertBox.innerHTML = '<div class="success-box">आपका संदेश सफलतापूर्वक प्राप्त हुआ। हम शीघ्र संपर्क करेंगे।</div>';
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = "संदेश भेजें";
+    }, 1200);
 });
 </script>
 
