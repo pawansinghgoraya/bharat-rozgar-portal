@@ -1,202 +1,265 @@
-/* ===============================
-   GIGW Friendly High Contrast Theme
-================================== */
+/* ==========================================
+   BHARAT ROZGAR PORTAL - DESIGN SYSTEM
+========================================== */
 
-/* Base Reset */
-* {
-    box-sizing: border-box;
+/* ========== COLOR SYSTEM ========== */
+:root {
+  --primary: #0b3d91;
+  --primary-dark: #072c6b;
+  --accent: #ff9933; /* India Accent */
+  --background: #f4f6f9;
+  --surface: #ffffff;
+  --text: #222222;
+  --muted-text: #555555;
+  --border: #dddddd;
+  --success: #1e7e34;
+  --error: #c00000;
+  --footer-bg: #111111;
 }
 
+/* ========== SPACING SYSTEM ========== */
+:root {
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 40px;
+  --radius: 6px;
+}
+
+/* ========== TYPOGRAPHY ========== */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #ffffff;
-    color: #000000; /* High contrast */
-    line-height: 1.6;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* ===============================
-   Header
-================================== */
+/* ========== HEADER ========== */
 
 header {
-    background-color: #002147; /* Dark Blue */
-    color: #ffffff;
-    padding: 15px;
+  background: var(--primary);
+  color: #fff;
+  padding: var(--space-md);
+  text-align: center;
 }
 
 header h1 {
-    margin: 0;
+  margin: 0;
+  font-size: 24px;
 }
 
-/* ===============================
-   Navigation
-================================== */
-
 nav {
-    margin-top: 8px;
+  margin-top: var(--space-sm);
 }
 
 nav a {
-    color: #ffffff;
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
 }
 
-nav a:hover,
-nav a:focus {
-    text-decoration: underline;
+nav a:hover {
+  text-decoration: underline;
 }
 
-/* Universal Focus Accessibility */
-a:focus,
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-    outline: 3px solid #ffcc00;
-    outline-offset: 2px;
-}
-
-/* ===============================
-   Main Layout
-================================== */
+/* ========== LAYOUT ========== */
 
 main {
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
+  max-width: 1100px;
+  margin: var(--space-lg) auto;
+  padding: var(--space-md);
 }
 
-.filter-section {
-    margin-bottom: 20px;
+section {
+  margin-bottom: var(--space-lg);
 }
 
-/* ===============================
-   Job Card
-================================== */
+/* ========== CARD COMPONENT ========== */
 
-.job-card {
-    border: 2px solid #002147;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
+.card {
+  background: var(--surface);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+  transition: 0.2s ease;
 }
 
-.job-card:hover {
-    background-color: #eef3f8;
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.job-card h3 {
-    margin-top: 0;
+/* ========== BUTTON SYSTEM ========== */
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* ===============================
-   Buttons
-================================== */
-
-button {
-    background-color: #002147;
-    color: #ffffff;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+.btn:hover {
+  background: var(--primary-dark);
 }
 
-button:hover {
-    background-color: #003366;
+.btn-secondary {
+  background: var(--accent);
+  color: #000;
 }
 
-button:disabled {
-    background-color: #888;
-    cursor: not-allowed;
+/* ========== FORM SYSTEM ========== */
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
-/* Pagination */
-
-#pagination button {
-    margin: 5px;
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+  outline: none;
 }
 
-#pagination button.active {
-    background-color: #ffcc00;
-    color: #000000;
-    font-weight: bold;
+.input-error {
+  border: 1px solid var(--error);
+  background: #fff5f5;
 }
 
-/* ===============================
-   Footer
-================================== */
+/* ========== FOOTER ========== */
 
 footer {
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+  background: var(--footer-bg);
+  color: #fff;
+  text-align: center;
+  padding: var(--space-md);
+  margin-top: var(--space-lg);
+  font-size: 14px;
 }
 
 .footer-links {
-    margin-bottom:10px;
+  margin-bottom: var(--space-sm);
 }
 
 .footer-links a {
-    color:#ddd;
-    text-decoration:none;
-    margin:0 8px;
-    font-size:14px;
+  color: #ddd;
+  margin: 0 8px;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
-    color:#fff;
-    text-decoration:underline;
+  color: #fff;
 }
 
 /* ===============================
-   Print Friendly (Government Requirement)
-================================== */
-
-@media print {
-
-    header,
-    nav,
-    footer,
-    .filter-section,
-    #pagination {
-        display: none;
-    }
-
-    body {
-        background: #ffffff;
-        color: #000000;
-    }
-
-    .job-card {
-        border: 1px solid #000000;
-    }
-}
-
-/* ===============================
-   Responsive Support
-================================== */
+   RESPONSIVE NAVIGATION
+================================= */
 
 @media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    nav a {
-        display: block;
-        margin-bottom: 8px;
-    }
+  nav a {
+    display: block;
+    padding: 8px;
+  }
+}
 
-    main {
-        padding: 15px;
-    }
+/* ===============================
+   RESPONSIVE NAVIGATION
+================================= */
 
-    .job-card {
-        padding: 12px;
-    }
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav a {
+    display: block;
+    padding: 8px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE LAYOUT
+================================= */
+
+@media (max-width: 1024px) {
+  main {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+}
+
+/* ===============================
+   JOB GRID RESPONSIVE
+================================= */
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .job-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   FORM RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .contact-box {
+    padding: 15px;
+  }
+
+  input, textarea, select {
+    font-size: 16px; /* Better mobile typing */
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
