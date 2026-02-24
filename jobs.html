@@ -15,23 +15,26 @@
 
 <main>
 
-  <div class="search-section">
-    <input type="text" id="searchInput" placeholder="Search jobs...">
-  </div>
+  <h2 class="section-title">Latest Government Jobs</h2>
 
-  <div class="filter-section">
+  <!-- Search & Filter -->
+  <div class="filter-bar">
+
+    <input type="text" id="searchInput" placeholder="Search by title or department">
+
     <select id="categoryFilter">
       <option value="all">All Departments</option>
       <option value="Engineering">Engineering</option>
       <option value="IT">IT</option>
       <option value="Banking">Banking</option>
     </select>
+
   </div>
 
-  <section id="job-list" aria-label="Job Listings">
-    <!-- Jobs will load here dynamically -->
-  </section>
+  <!-- Job List -->
+  <section id="job-list" class="job-grid"></section>
 
+  <!-- Pagination -->
   <div id="pagination"></div>
 
 </main>
