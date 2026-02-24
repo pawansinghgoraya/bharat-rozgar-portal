@@ -1,45 +1,81 @@
-const params = new URLSearchParams(window.location.search);
-const jobId = params.get("id");
+"use strict";
 
-fetch("data/jobs.json")
-    .then(res => res.json())
-    .then(data => {
+document.addEventListener("DOMContentLoaded", function () {
 
-        const job = data.find(j => j.id == jobId);
+    const jobContent = document.getElementById("jobContent");
 
-        if (!job) {
-            document.body.innerHTML = "<h2>Job Not Found</h2>";
-            return;
-        }
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get("id");
 
-        document.getElementById("jobTitle").textContent = job.title;
-        document.getElementById("jobDept").textContent = job.department;
-        document.getElementById("jobLocation").textContent = job.location;
-        document.getElementById("jobPosts").textContent = job.totalPosts;
-        document.getElementById("jobLastDate").textContent = job.lastDate;
+    if (!jobId) {
+        showError("Invalid Job ID.");
+        return;
+    }
 
-        document.getElementById("startDate").textContent = job.importantDates.start;
-        document.getElementById("lastDate").textContent = job.importantDates.last;
-        document.getElementById("examDate").textContent = job.importantDates.exam;
+    fetch("data/jobs.json", { cache: "no-store" })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Data not found.");
+            }
+            return response.json();
+        })
+        .then(data => {
 
-        document.getElementById("feeGeneral").textContent = job.applicationFees.general;
-        document.getElementById("feeSCST").textContent = job.applicationFees.scst;
-        document.getElementById("feeFemale").textContent = job.applicationFees.female;
+            if (!Array.isArray(data)) {
+                throw new Error("Invalid Data Format.");
+            }
 
-        document.getElementById("education").textContent = job.eligibility.education;
-        document.getElementById("age").textContent = job.eligibility.age;
+            const job = data.find(j => String(j.id) === String(jobId));
 
-        document.getElementById("selectionProcess").textContent = job.selectionProcess;
-        document.getElementById("howToApply").textContent = job.howToApply;
-    });
+            if (!job) {
+                showError("Job not found.");
+                return;
+            }
 
-const agreeCheckbox = document.getElementById("agreeCheckbox");
-const applyBtn = document.getElementById("applyBtn");
+            renderJob(job);
+        })
+        .catch(error => {
+            console.error(error);
+            showError("Unable to load job details.");
+        });
 
-agreeCheckbox.addEventListener("change", () => {
-    applyBtn.disabled = !agreeCheckbox.checked;
-});
 
-applyBtn.addEventListener("click", () => {
-    alert("Proceeding to Application Form...");
+    function renderJob(job) {
+
+        jobContent.innerHTML = "";
+
+        const title = document.createElement("h3");
+        title.textContent = job.title || "Untitled";
+
+        const dept = document.createElement("p");
+        dept.innerHTML = "<strong>Department:</strong> ";
+        dept.appendChild(document.createTextNode(job.department || "N/A"));
+
+        const date = document.createElement("p");
+        date.innerHTML = "<strong>Last Date:</strong> ";
+        date.appendChild(document.createTextNode(job.lastDate || "N/A"));
+
+        const desc = document.createElement("p");
+        desc.innerHTML = "<strong>Description:</strong> ";
+        desc.appendChild(document.createTextNode(job.description || "No description available."));
+
+        const applyBtn = document.createElement("a");
+        applyBtn.href = job.applyLink || "#";
+        applyBtn.textContent = "Apply Now";
+        applyBtn.className = "btn";
+        applyBtn.setAttribute("target", "_blank");
+        applyBtn.setAttribute("rel", "noopener noreferrer");
+
+        jobContent.appendChild(title);
+        jobContent.appendChild(dept);
+        jobContent.appendChild(date);
+        jobContent.appendChild(desc);
+        jobContent.appendChild(applyBtn);
+    }
+
+    function showError(message) {
+        jobContent.textContent = message;
+        jobContent.style.color = "#c00000";
+    }
+
 });
