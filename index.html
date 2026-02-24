@@ -1,86 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
     <meta charset="UTF-8">
-    <title>Bharat Rozgar Portal</title>
+    <title>Bharat Rozgar Portal | Government Jobs Updates</title>
+
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Government Compliant Dynamic Job Portal">
+
+    <!-- SEO -->
+    <meta name="description" content="Official Bharat Rozgar Portal providing latest government job notifications, admit cards and results updates.">
+    <meta name="keywords" content="Government Jobs, Sarkari Naukri, Admit Card, Results, Recruitment">
+    <meta name="author" content="Bharat Rozgar Portal">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0b3d91">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Skip to Content -->
+    <!-- Skip to Main Content (Accessibility) -->
     <a href="#maincontent" class="skip-link">Skip to Main Content</a>
 
-    <!-- Header -->
-    <header>
-        <h1>Bharat Rozgar Portal</h1>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" role="banner">
+        <div class="container">
 
-        <nav aria-label="Main Navigation">
-            <a href="index.html">Home</a>
-            <a href="jobs.html">Jobs</a>
-            <a href="admit_card.html">Admit Cards</a>
-            <a href="results.html">Results</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+            <h1 class="site-title">
+                <a href="index.html">Bharat Rozgar Portal</a>
+            </h1>
+
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="admit_card.html">Admit Cards</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="maincontent">
+    <!-- ================= MAIN ================= -->
+    <main id="maincontent" role="main" class="container">
 
-        <section aria-labelledby="latest-jobs">
-            <h2 id="latest-jobs">Latest Government Jobs</h2>
+        <!-- ===== Latest Jobs Section ===== -->
+        <section aria-labelledby="latest-jobs-heading" class="section">
+            <h2 id="latest-jobs-heading">Latest Government Jobs</h2>
 
-            <!-- Search Bar -->
-    <div class="search-section">
-    <label for="searchInput">Search Jobs:</label>
-    <input type="text" id="searchInput" placeholder="Search by title or department">
-    </div>
+            <!-- Search -->
+            <div class="search-section">
+                <label for="searchInput">Search Jobs</label>
+                <input 
+                    type="search" 
+                    id="searchInput"
+                    name="search"
+                    placeholder="Search by title or department"
+                    aria-label="Search jobs by title or department">
+            </div>
 
-            <!-- Filter Section -->
+            <!-- Filter -->
             <div class="filter-section">
-                <label for="categoryFilter">Filter by Department:</label>
-                <select id="categoryFilter">
-                    <option value="all">All</option>
+                <label for="categoryFilter">Filter by Department</label>
+                <select id="categoryFilter" name="department">
+                    <option value="all">All Departments</option>
                     <option value="Engineering">Engineering</option>
                     <option value="IT">IT</option>
                     <option value="Banking">Banking</option>
                 </select>
             </div>
 
-            <!-- Job-List -->
-            <div id="job-list" class="job-grid" aria-live="polite"></div>
+            <!-- Job List -->
+            <div 
+                id="job-list" 
+                class="job-grid" 
+                aria-live="polite" 
+                aria-atomic="true">
+            </div>
 
             <!-- Pagination -->
-            <div id="pagination"></div>
+            <nav id="pagination" aria-label="Job Pagination"></nav>
 
         </section>
 
-        <section>
-            <h2>Recruitment Notice</h2>
+        <!-- ===== Recruitment Notice ===== -->
+        <section aria-labelledby="recruitment-heading" class="section">
+            <h2 id="recruitment-heading">Recruitment Notice</h2>
 
-            <img 
-                src="assets/images/banner.jpg" 
-                alt="Government Recruitment Notification Banner"
-                width="100%">
+            <figure>
+                <img 
+                    src="assets/images/banner.jpg" 
+                    alt="Government Recruitment Notification Banner"
+                    class="responsive-img">
+                <figcaption class="visually-hidden">
+                    Latest recruitment notification banner issued by government departments.
+                </figcaption>
+            </figure>
+
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-  <div class="footer-links">
-      <a href="about.html">About Us</a> |
-      <a href="disclaimer.html">Disclaimer</a> |
-      <a href="privacy-policy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms & Conditions</a> |
-      <a href="contact.html">Contact</a>
-  </div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
 
-  <p>© 2026 भारत रोजगार पोर्टल | All Rights Reserved</p>
-</footer>
+            <nav aria-label="Footer Navigation">
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
 
-<script src="js/jobs.js"></script>
+            <p>
+                © 2026 Bharat Rozgar Portal. All Rights Reserved.
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/script.js" defer></script>
+
 </body>
 </html>
