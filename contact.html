@@ -146,10 +146,10 @@ form.addEventListener("submit", function(e){
     document.querySelectorAll(".error-text").forEach(el=>el.textContent="");
     alertBox.innerHTML="";
 
-    const name = name.value.trim();
-    const email = email.value.trim();
-    const phone = phone.value.trim();
-    const message = message.value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
     const honeypot = document.getElementById("website").value;
 
     let isValid = true;
