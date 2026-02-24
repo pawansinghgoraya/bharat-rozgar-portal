@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="hi-IN">
+<head>
+    <!-- ================= META ================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | भारत रोजगार पोर्टल</title>
+
+    <meta name="description" content="भारत रोजगार पोर्टल से संपर्क करें। सुझाव, प्रश्न या सहायता के लिए हमें संदेश भेजें।">
+
+    <!-- ================= CSS ================= -->
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        header {
+            background: #0b3d91;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #0b3d91;
+            margin-top: 0;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #0b3d91;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #072c6b;
+        }
+
+        .info-box {
+            background: #e9f3ff;
+            padding: 20px;
+            border-left: 5px solid #0b3d91;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Contact Us</h1>
+    <p>भारत रोजगार पोर्टल</p>
+</header>
+
+<main>
+
+    <div class="contact-container">
+
+        <!-- Contact Form -->
+        <div>
+            <h2>संपर्क फॉर्म</h2>
+            <form id="contactForm" novalidate>
+
+                <label for="name">नाम *</label>
+                <input type="text" id="name" required>
+
+                <label for="email">ईमेल *</label>
+                <input type="email" id="email" required>
+
+                <label for="phone">फोन नंबर</label>
+                <input type="tel" id="phone">
+
+                <label for="message">संदेश *</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">संदेश भेजें</button>
+
+                <div id="formMessage" class="message"></div>
+
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+            <h2>हमसे संपर्क करें</h2>
+
+            <div class="info-box">
+                <p><strong>Email:</strong> support@bharatrojgarportal.in</p>
+                <p><strong>Website:</strong> https://www.bharatrojgarportal.in</p>
+                <p><strong>Response Time:</strong> 24–48 घंटे</p>
+            </div>
+
+            <p style="margin-top:20px;">
+                कृपया किसी भी आवेदन या शुल्क भुगतान से पहले संबंधित विभाग की आधिकारिक वेबसाइट पर जानकारी सत्यापित करें।
+            </p>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    © 2026 भारत रोजगार पोर्टल | All Rights Reserved
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            formMessage.textContent = "कृपया सभी आवश्यक फ़ील्ड भरें।";
+            formMessage.className = "message error";
+            return;
+        }
+
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+            formMessage.textContent = "कृपया सही ईमेल पता दर्ज करें।";
+            formMessage.className = "message error";
+            return;
+        }
+
+        formMessage.textContent = "आपका संदेश सफलतापूर्वक भेज दिया गया है!";
+        formMessage.className = "message success";
+
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
