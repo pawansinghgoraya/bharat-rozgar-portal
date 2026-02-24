@@ -159,22 +159,7 @@ footer {
   color: #fff;
 }
 
-/* ===============================
-   RESPONSIVE NAVIGATION
-================================= */
 
-@media (max-width: 768px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  nav a {
-    display: block;
-    padding: 8px;
-  }
-}
 
 /* ===============================
    RESPONSIVE NAVIGATION
