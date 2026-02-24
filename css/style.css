@@ -1,106 +1,103 @@
-/* ==========================================
-   BHARAT ROZGAR PORTAL - DESIGN SYSTEM
-========================================== */
+/* ===============================
+   BHARAT ROZGAR PORTAL
+   UNIFIED DESIGN SYSTEM
+=================================*/
 
-/* ========== COLOR SYSTEM ========== */
 :root {
-  --primary: #0b3d91;
-  --primary-dark: #072c6b;
-  --accent: #ff9933; /* India Accent */
-  --background: #f4f6f9;
+  --primary: #1e3a8a;
+  --primary-dark: #142c6e;
+  --accent: #facc15;
+  --bg: #f4f6f9;
   --surface: #ffffff;
-  --text: #222222;
-  --muted-text: #555555;
-  --border: #dddddd;
-  --success: #1e7e34;
-  --error: #c00000;
-  --footer-bg: #111111;
-}
-
-/* ========== SPACING SYSTEM ========== */
-:root {
-  --space-xs: 5px;
-  --space-sm: 10px;
+  --border: #e0e0e0;
+  --text: #333;
+  --radius: 8px;
   --space-md: 20px;
-  --space-lg: 40px;
-  --radius: 6px;
 }
 
-/* ========== TYPOGRAPHY ========== */
+/* Body */
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--background);
+  font-family: Arial, sans-serif;
+  background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
 }
 
-/* ========== HEADER ========== */
-
-header {
-  background: var(--primary);
-  color: #fff;
-  padding: var(--space-md);
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-nav {
-  margin-top: var(--space-sm);
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 12px;
-  font-size: 14px;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ========== LAYOUT ========== */
+/* Main */
 
 main {
   max-width: 1100px;
-  margin: var(--space-lg) auto;
-  padding: var(--space-md);
+  margin: auto;
+  padding: 40px 20px;
 }
 
-section {
-  margin-bottom: var(--space-lg);
+/* Section Title */
+
+.section-title {
+  margin-bottom: 20px;
 }
 
-/* ========== CARD COMPONENT ========== */
+/* Filter Bar */
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  flex: 1;
+}
+
+/* Job Grid */
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
 
 .card {
   background: var(--surface);
   padding: var(--space-md);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  margin-bottom: var(--space-md);
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* ========== BUTTON SYSTEM ========== */
+/* Urgent Badge */
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  background: red;
+  color: white;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Button */
 
 .btn {
   display: inline-block;
   padding: 8px 16px;
   background: var(--primary);
   color: #fff;
-  border: none;
+  text-decoration: none;
   border-radius: var(--radius);
-  cursor: pointer;
   font-size: 14px;
 }
 
@@ -108,143 +105,31 @@ section {
   background: var(--primary-dark);
 }
 
-.btn-secondary {
-  background: var(--accent);
-  color: #000;
-}
+/* Pagination */
 
-/* ========== FORM SYSTEM ========== */
-
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-sm);
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: var(--primary);
-  outline: none;
-}
-
-.input-error {
-  border: 1px solid var(--error);
-  background: #fff5f5;
-}
-
-/* ========== FOOTER ========== */
-
-footer {
-  background: var(--footer-bg);
-  color: #fff;
+#pagination {
+  margin-top: 30px;
   text-align: center;
-  padding: var(--space-md);
-  margin-top: var(--space-lg);
-  font-size: 14px;
 }
 
-.footer-links {
-  margin-bottom: var(--space-sm);
+#pagination button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.footer-links a {
-  color: #ddd;
-  margin: 0 8px;
-  text-decoration: none;
+#pagination button.active {
+  background: var(--primary);
+  color: white;
 }
 
-.footer-links a:hover {
-  color: #fff;
-}
-
-
-
-/* ===============================
-   RESPONSIVE NAVIGATION
-================================= */
+/* Responsive */
 
 @media (max-width: 768px) {
-  nav {
-    display: flex;
+  .filter-bar {
     flex-direction: column;
-    gap: 8px;
-  }
-
-  nav a {
-    display: block;
-    padding: 8px;
-  }
-}
-
-/* ===============================
-   RESPONSIVE LAYOUT
-================================= */
-
-@media (max-width: 1024px) {
-  main {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    margin: 20px auto;
-    padding: 10px;
-  }
-
-  header h1 {
-    font-size: 20px;
-  }
-}
-
-/* ===============================
-   JOB GRID RESPONSIVE
-================================= */
-
-.job-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .job-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .job-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===============================
-   FORM RESPONSIVE
-================================= */
-
-@media (max-width: 768px) {
-  .contact-box {
-    padding: 15px;
-  }
-
-  input, textarea, select {
-    font-size: 16px; /* Better mobile typing */
-  }
-
-  button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
   }
 }
