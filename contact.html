@@ -1,209 +1,193 @@
 <!DOCTYPE html>
 <html lang="hi-IN">
 <head>
-    <!-- ================= META ================= -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | भारत रोजगार पोर्टल</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | भारत रोजगार पोर्टल</title>
 
-    <meta name="description" content="भारत रोजगार पोर्टल से संपर्क करें। सुझाव, प्रश्न या सहायता के लिए हमें संदेश भेजें।">
+<meta name="description" content="भारत रोजगार पोर्टल से संपर्क करें।">
 
-    <!-- ================= CSS ================= -->
-    <style>
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", Arial, sans-serif;
-            background: #f4f6f9;
-            color: #222;
-        }
-
-        header {
-            background: #0b3d91;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            background: #fff;
-            padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: #0b3d91;
-            margin-top: 0;
-        }
-
-        label {
-            font-weight: 600;
-            display: block;
-            margin-top: 15px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #0b3d91;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            border-radius: 4px;
-        }
-
-        button:hover {
-            background: #072c6b;
-        }
-
-        .info-box {
-            background: #e9f3ff;
-            padding: 20px;
-            border-left: 5px solid #0b3d91;
-        }
-
-        .message {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .success {
-            color: green;
-        }
-
-        .error {
-            color: red;
-        }
-
-        footer {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<style>
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",Arial,sans-serif;
+    background:#f4f6f9;
+    color:#222;
+}
+header{
+    background:#0b3d91;
+    color:#fff;
+    text-align:center;
+    padding:18px;
+}
+main{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+.contact-box{
+    background:#fff;
+    padding:30px;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+h2{
+    margin-top:0;
+    color:#0b3d91;
+}
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:600;
+}
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    font-size:14px;
+}
+input:focus,textarea:focus{
+    border-color:#0b3d91;
+    outline:none;
+}
+.error-text{
+    color:#c00000;
+    font-size:13px;
+}
+.success-box{
+    background:#e6ffed;
+    border-left:4px solid green;
+    padding:10px;
+    margin-top:15px;
+}
+.error-box{
+    background:#ffecec;
+    border-left:4px solid red;
+    padding:10px;
+    margin-bottom:15px;
+}
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    background:#0b3d91;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    border-radius:4px;
+}
+button:hover{
+    background:#072c6b;
+}
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Contact Us</h1>
-    <p>भारत रोजगार पोर्टल</p>
+<h1>संपर्क करें</h1>
+<p>भारत रोजगार पोर्टल</p>
 </header>
 
 <main>
+<div class="contact-box">
 
-    <div class="contact-container">
+<h2>संपर्क फॉर्म</h2>
 
-        <!-- Contact Form -->
-        <div>
-            <h2>संपर्क फॉर्म</h2>
-            <form id="contactForm" novalidate>
+<div id="alertBox" aria-live="polite"></div>
 
-                <label for="name">नाम *</label>
-                <input type="text" id="name" required>
+<form id="contactForm" novalidate>
 
-                <label for="email">ईमेल *</label>
-                <input type="email" id="email" required>
+<!-- Honeypot Anti Spam -->
+<input type="text" id="website" style="display:none">
 
-                <label for="phone">फोन नंबर</label>
-                <input type="tel" id="phone">
+<label for="name">नाम *</label>
+<input type="text" id="name" required aria-required="true">
+<div id="nameError" class="error-text"></div>
 
-                <label for="message">संदेश *</label>
-                <textarea id="message" required></textarea>
+<label for="email">ईमेल *</label>
+<input type="email" id="email" required aria-required="true">
+<div id="emailError" class="error-text"></div>
 
-                <button type="submit">संदेश भेजें</button>
+<label for="phone">मोबाइल नंबर</label>
+<input type="tel" id="phone" pattern="[6-9]{1}[0-9]{9}">
+<div id="phoneError" class="error-text"></div>
 
-                <div id="formMessage" class="message"></div>
+<label for="message">संदेश *</label>
+<textarea id="message" required aria-required="true"></textarea>
+<div id="messageError" class="error-text"></div>
 
-            </form>
-        </div>
+<button type="submit">संदेश भेजें</button>
 
-        <!-- Contact Info -->
-        <div>
-            <h2>हमसे संपर्क करें</h2>
+</form>
 
-            <div class="info-box">
-                <p><strong>Email:</strong> support@bharatrojgarportal.in</p>
-                <p><strong>Website:</strong> https://www.bharatrojgarportal.in</p>
-                <p><strong>Response Time:</strong> 24–48 घंटे</p>
-            </div>
-
-            <p style="margin-top:20px;">
-                कृपया किसी भी आवेदन या शुल्क भुगतान से पहले संबंधित विभाग की आधिकारिक वेबसाइट पर जानकारी सत्यापित करें।
-            </p>
-        </div>
-
-    </div>
-
+</div>
 </main>
 
 <footer>
-    © 2026 भारत रोजगार पोर्टल | All Rights Reserved
+© 2026 भारत रोजगार पोर्टल | All Rights Reserved
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
 <script>
-    const form = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
+const form = document.getElementById("contactForm");
+const alertBox = document.getElementById("alertBox");
 
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
+form.addEventListener("submit", function(e){
+    e.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+    // Reset
+    document.querySelectorAll(".error-text").forEach(el=>el.textContent="");
+    alertBox.innerHTML="";
 
-        if (name === "" || email === "" || message === "") {
-            formMessage.textContent = "कृपया सभी आवश्यक फ़ील्ड भरें।";
-            formMessage.className = "message error";
-            return;
-        }
+    const name = name.value.trim();
+    const email = email.value.trim();
+    const phone = phone.value.trim();
+    const message = message.value.trim();
+    const honeypot = document.getElementById("website").value;
 
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!email.match(emailPattern)) {
-            formMessage.textContent = "कृपया सही ईमेल पता दर्ज करें।";
-            formMessage.className = "message error";
-            return;
-        }
+    let isValid = true;
 
-        formMessage.textContent = "आपका संदेश सफलतापूर्वक भेज दिया गया है!";
-        formMessage.className = "message success";
+    if(honeypot !== ""){
+        return; // spam detected
+    }
 
-        form.reset();
-    });
+    if(name === ""){
+        nameError.textContent="नाम आवश्यक है।";
+        isValid=false;
+    }
+
+    const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email.match(emailPattern)){
+        emailError.textContent="सही ईमेल दर्ज करें।";
+        isValid=false;
+    }
+
+    const phonePattern=/^[6-9]\d{9}$/;
+    if(phone !== "" && !phone.match(phonePattern)){
+        phoneError.textContent="सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
+        isValid=false;
+    }
+
+    if(message === ""){
+        messageError.textContent="संदेश आवश्यक है।";
+        isValid=false;
+    }
+
+    if(!isValid){
+        alertBox.innerHTML='<div class="error-box">कृपया फॉर्म में त्रुटियाँ सुधारें।</div>';
+        return;
+    }
+
+    alertBox.innerHTML='<div class="success-box">आपका संदेश सफलतापूर्वक प्राप्त हुआ। हम शीघ्र संपर्क करेंगे।</div>';
+    form.reset();
+});
 </script>
 
 </body>
