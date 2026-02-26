@@ -1,22 +1,12 @@
 [
   {
     "id": 1,
-    "title": "Junior Clerk",
-    "department": "Engineering",
-    "lastDate": "2026-03-15",
-    "location": "Lucknow",
+    "title": "UP Police SI Recruitment 2026",
+    "department": "UP Police",
+    "lastDate": "19 January 2026",
     "qualification": "Graduate",
-    "totalPosts": 120,
-    "description": "Recruitment for Junior Clerk posts in Engineering Department."
-  },
-  {
-    "id": 2,
-    "title": "Data Entry Operator",
-    "department": "IT",
-    "lastDate": "2026-03-20",
-    "location": "Delhi",
-    "qualification": "12th Pass",
-    "totalPosts": 75,
-    "description": "Recruitment for Data Entry Operator posts in IT Department."
+    "ageLimit": "21-28 Years",
+    "description": "Recruitment for Sub Inspector posts.",
+    "applyLink": "https://uppbpb.gov.in"
   }
 ]
