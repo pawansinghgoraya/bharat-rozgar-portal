@@ -101,10 +101,10 @@ main.container {
 }
 
 /* RIGHT SIDEBAR */
-.sidebar {
-  background: var(--surface);
+ aside {
+  background: #ffffff;
   padding: 20px;
-  border: 1px solid var(--border);
+  border: 1px solid #ddd;
   border-radius: 6px;
   height: fit-content;
 }
