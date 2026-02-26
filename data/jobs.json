@@ -1,24 +1,22 @@
 [
-  
   {
     "id": 1,
     "title": "Junior Clerk",
-    "department": "UP State Department",
+    "department": "Engineering",
+    "lastDate": "2026-03-15",
     "location": "Lucknow",
-    "lastDate": "2026-03-15"
+    "qualification": "Graduate",
+    "totalPosts": 120,
+    "description": "Recruitment for Junior Clerk posts in Engineering Department."
   },
   {
     "id": 2,
     "title": "Data Entry Operator",
-    "department": "Central Govt Office",
+    "department": "IT",
+    "lastDate": "2026-03-20",
     "location": "Delhi",
-    "lastDate": "2026-03-20"
-  },
-  {
-    "id": 3,
-    "title": "Assistant Engineer",
-    "department": "PWD Department",
-    "location": "Kanpur",
-    "lastDate": "2026-04-05"
+    "qualification": "12th Pass",
+    "totalPosts": 75,
+    "description": "Recruitment for Data Entry Operator posts in IT Department."
   }
 ]
