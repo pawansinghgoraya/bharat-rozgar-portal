@@ -1,81 +1,86 @@
-"use strict";
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const jobContent = document.getElementById("jobContent");
+    const jobContainer = document.getElementById("jobDetail");
 
+    // Get Job ID from URL
     const params = new URLSearchParams(window.location.search);
     const jobId = params.get("id");
 
     if (!jobId) {
-        showError("Invalid Job ID.");
+        jobContainer.textContent = "Invalid Job ID.";
         return;
     }
 
-    fetch("data/jobs.json", { cache: "no-store" })
+    fetch("data/jobs.json")
         .then(response => {
             if (!response.ok) {
-                throw new Error("Data not found.");
+                throw new Error("Jobs data not found.");
             }
             return response.json();
         })
         .then(data => {
 
-            if (!Array.isArray(data)) {
-                throw new Error("Invalid Data Format.");
-            }
-
             const job = data.find(j => String(j.id) === String(jobId));
 
             if (!job) {
-                showError("Job not found.");
+                jobContainer.textContent = "Job not found.";
                 return;
             }
 
-            renderJob(job);
+            renderJobDetails(job);
         })
         .catch(error => {
             console.error(error);
-            showError("Unable to load job details.");
+            jobContainer.textContent = "Unable to load job details.";
         });
 
+    // =========================
+    // SECURE RENDER FUNCTION
+    // =========================
+    function renderJobDetails(job) {
 
-    function renderJob(job) {
+        const article = document.createElement("article");
+        article.className = "card";
 
-        jobContent.innerHTML = "";
+        const title = document.createElement("h2");
+        title.textContent = job.title;
 
-        const title = document.createElement("h3");
-        title.textContent = job.title || "Untitled";
-
-        const dept = document.createElement("p");
-        dept.innerHTML = "<strong>Department:</strong> ";
-        dept.appendChild(document.createTextNode(job.department || "N/A"));
-
-        const date = document.createElement("p");
-        date.innerHTML = "<strong>Last Date:</strong> ";
-        date.appendChild(document.createTextNode(job.lastDate || "N/A"));
+        const dept = createField("Department", job.department);
+        const lastDate = createField("Last Date", job.lastDate);
+        const qualification = createField("Qualification", job.qualification || "As per notification");
+        const age = createField("Age Limit", job.ageLimit || "As per rules");
 
         const desc = document.createElement("p");
-        desc.innerHTML = "<strong>Description:</strong> ";
-        desc.appendChild(document.createTextNode(job.description || "No description available."));
+        desc.textContent = job.description || "Refer official notification.";
 
         const applyBtn = document.createElement("a");
         applyBtn.href = job.applyLink || "#";
-        applyBtn.textContent = "Apply Now";
         applyBtn.className = "btn";
-        applyBtn.setAttribute("target", "_blank");
-        applyBtn.setAttribute("rel", "noopener noreferrer");
+        applyBtn.textContent = "Apply Online";
+        applyBtn.target = "_blank";
+        applyBtn.rel = "noopener noreferrer";
 
-        jobContent.appendChild(title);
-        jobContent.appendChild(dept);
-        jobContent.appendChild(date);
-        jobContent.appendChild(desc);
-        jobContent.appendChild(applyBtn);
+        article.appendChild(title);
+        article.appendChild(dept);
+        article.appendChild(lastDate);
+        article.appendChild(qualification);
+        article.appendChild(age);
+        article.appendChild(desc);
+        article.appendChild(applyBtn);
+
+        jobContainer.appendChild(article);
     }
 
-    function showError(message) {
-        jobContent.textContent = message;
-        jobContent.style.color = "#c00000";
+    function createField(label, value) {
+        const p = document.createElement("p");
+
+        const strong = document.createElement("strong");
+        strong.textContent = label + ": ";
+
+        p.appendChild(strong);
+        p.appendChild(document.createTextNode(value));
+
+        return p;
     }
 
 });
