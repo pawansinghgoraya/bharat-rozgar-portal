@@ -111,20 +111,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     function createPagination(totalPages) {
 
-        for (let i = 1; i <= totalPages; i++) {
+    pagination.innerHTML = "";
 
-            const btn = document.createElement("button");
-            btn.textContent = i;
-            btn.className = "btn btn-secondary";
+    for (let i = 1; i <= totalPages; i++) {
 
-            btn.addEventListener("click", function () {
-                currentPage = i;
-                displayJobs();
-            });
+        const btn = document.createElement("button");
+        btn.textContent = i;
 
-            pagination.appendChild(btn);
-        }
+        btn.addEventListener("click", function () {
+            changePage(i);
+        });
+
+        pagination.appendChild(btn);
     }
+}
 
     // =========================
     // EVENT LISTENERS
