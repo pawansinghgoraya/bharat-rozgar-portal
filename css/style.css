@@ -14,11 +14,15 @@
   --muted: #555;
   --border: #dcdcdc;
   --footer-bg: #111;
-  --focus: #ffbf47; /* Govt Focus Yellow */
+  --focus: #ffbf47;
+  --radius: 6px;
+  --transition: 0.2s ease-in-out;
 }
 
 /* ========== RESET ========== */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -47,6 +51,7 @@ body {
   padding: 8px 12px;
   z-index: 1000;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .skip-link:focus {
@@ -71,6 +76,7 @@ body {
   margin: 10px 0 0;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .main-nav a {
@@ -84,28 +90,28 @@ body {
   text-decoration: underline;
 }
 
-/* ========== LAYOUT (2 COLUMN) ========== */
+/* ========== 2 COLUMN LAYOUT ========== */
 
 main.container {
   display: grid;
-  grid-template-columns: 3fr 1fr;  /* LEFT + RIGHT */
+  grid-template-columns: 3fr 1fr;
   gap: 30px;
 }
 
-/* LEFT MAIN CONTENT */
+/* LEFT CONTENT */
 .section {
   background: var(--surface);
   padding: 20px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 /* RIGHT SIDEBAR */
- aside {
-  background: #ffffff;
+aside {
+  background: var(--surface);
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   height: fit-content;
 }
 
@@ -123,9 +129,9 @@ main.container {
 .card {
   border: 1px solid var(--border);
   padding: 15px;
-  border-radius: 6px;
+  border-radius: var(--radius);
   background: #fff;
-  transition: 0.2s ease;
+  transition: var(--transition);
 }
 
 .card:hover {
@@ -146,25 +152,31 @@ main.container {
   border-radius: 4px;
   text-decoration: none;
   font-size: 14px;
+  transition: var(--transition);
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background: var(--primary-dark);
 }
 
 /* ========== FORM ========== */
 
-input, select {
+input,
+select,
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--border);
   border-radius: 4px;
   margin-top: 5px;
   margin-bottom: 15px;
+  font-size: 14px;
 }
 
 input:focus,
 select:focus,
+textarea:focus,
 a:focus,
 button:focus {
   outline: 3px solid var(--focus);
@@ -181,13 +193,15 @@ button:focus {
 #pagination button {
   padding: 6px 12px;
   margin: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   background: #fff;
   cursor: pointer;
+  transition: var(--transition);
 }
 
-#pagination button:hover {
-  background: #0d47a1;
+#pagination button:hover,
+#pagination button:focus {
+  background: var(--primary);
   color: #fff;
 }
 
@@ -213,7 +227,8 @@ button:focus {
   text-decoration: none;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:focus {
   color: #fff;
 }
 
@@ -222,7 +237,7 @@ button:focus {
 @media (max-width: 1024px) {
 
   main.container {
-    grid-template-columns: 1fr; /* Stack layout */
+    grid-template-columns: 1fr;
   }
 
   .job-grid {
@@ -238,7 +253,9 @@ button:focus {
 /* ========== PRINT FRIENDLY ========== */
 
 @media print {
-  nav, .sidebar, .skip-link {
+  nav,
+  aside,
+  .skip-link {
     display: none;
   }
 
