@@ -1,4 +1,4 @@
-const container = document.getElementById("job-container");
+const container = document.getElementById("job-list");
 
 const params = new URLSearchParams(window.location.search);
 const jobId = parseInt(params.get("id"));
