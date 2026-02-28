@@ -1,12 +1,32 @@
 [
   {
     "id": 1,
-    "title": "UP Police SI Recruitment 2026",
-    "department": "UP Police",
-    "lastDate": "19 January 2026",
+    "title": "UP Police SI / ASI Recruitment 2025",
+    "organization": "Uttar Pradesh Police Recruitment & Promotion Board (UPPRPB)",
+    "department": "Police",
+    "totalPosts": "537",
     "qualification": "Graduate",
-    "ageLimit": "21-28 Years",
-    "description": "Recruitment for Sub Inspector posts.",
-    "applyLink": "https://uppbpb.gov.in"
+    "ageLimit": "21 – 28 Years",
+    "lastDate": "19 January 2026",
+    "overview": "UP Police has released notification for SI & ASI posts.",
+    "eligibility": [
+      "Graduation from recognized university",
+      "Age 21 to 28 years",
+      "Age relaxation as per rules"
+    ],
+    "importantDates": [
+      "Application Start: 20 December 2025",
+      "Last Date: 19 January 2026",
+      "Exam Date: Notify Later"
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Physical Test (PET / PST)",
+      "Document Verification",
+      "Medical Examination"
+    ],
+    "applyLink": "#",
+    "notificationLink": "#",
+    "officialWebsite": "#"
   }
 ]
