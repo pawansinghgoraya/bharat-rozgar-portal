@@ -208,7 +208,7 @@ button:focus {
 /* ========== FOOTER ========== */
 
 .site-footer {
-  background: var(--footer-bg);
+  background: var(--primary);
   color: #fff;
   margin-top: 40px;
   padding: 20px 0;
