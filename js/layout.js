@@ -1,11 +1,13 @@
-fetch("/bharat-rozgar-portal/components/header.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("header-placeholder").innerHTML = data;
-});
+const basePath = "/bharat-rozgar-portal";
 
-fetch("/bharat-rozgar-portal/components/footer.html")
-.then(res => res.text())
-.then(data => {
+fetch(basePath + "/components/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header-placeholder").innerHTML = data;
+  });
+
+fetch(basePath + "/components/footer.html")
+  .then(res => res.text())
+  .then(data => {
     document.getElementById("footer-placeholder").innerHTML = data;
-});
+  });
