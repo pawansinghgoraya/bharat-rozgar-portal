@@ -348,23 +348,26 @@ button:focus {
   padding: 10px 18px;
   font-weight: 600;
 }
+
 /* ==========================================
-   CONTACT PAGE (STQC + GIGW + WCAG AA)
+   CONTACT PAGE – 2 COLUMN COMPATIBLE
 ========================================== */
 
 .contact-section {
-  max-width: 760px;
-  margin: 40px auto;
   background: var(--surface);
-  padding: 35px;
+  padding: 25px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
-.section-description {
-  color: var(--muted);
-  margin-bottom: 25px;
-  font-size: 15px;
+/* Remove forced center */
+.contact-section h1 {
+  margin-top: 0;
+}
+
+/* Keep form full width inside left column */
+.contact-section form {
+  max-width: 100%;
 }
 
 /* Form Layout */
