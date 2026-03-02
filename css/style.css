@@ -348,7 +348,96 @@ button:focus {
   padding: 10px 18px;
   font-weight: 600;
 }
+/* ==========================================
+   CONTACT PAGE (STQC + GIGW + WCAG AA)
+========================================== */
 
+.contact-section {
+  max-width: 760px;
+  margin: 40px auto;
+  background: var(--surface);
+  padding: 35px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.section-description {
+  color: var(--muted);
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* Form Layout */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Error Styling */
+.input-error {
+  border-color: #d32f2f !important;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Alert Box */
+.form-alert {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.form-alert.error {
+  background: #fdecea;
+  color: #b71c1c;
+  border: 1px solid #d32f2f;
+}
+
+.form-alert.success {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #2e7d32;
+}
+
+/* Submit Button Upgrade */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--primary-dark);
+}
+
+/* Honeypot Hidden Field */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 25px;
+  }
+}
 
 
 /* ========== PRINT FRIENDLY ========== */
