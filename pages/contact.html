@@ -3,47 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | भारत रोजगार पोर्टल</title>
+<title>संपर्क करें | भारत रोजगार पोर्टल</title>
 
 <meta name="description" content="भारत रोजगार पोर्टल से संपर्क करें।">
 
 <link rel="stylesheet" href="/bharat-rozgar-portal/css/style.css">
-
 </head>
-    
+
 <body>
 
-<header>
-<h1>संपर्क करें</h1>
-<p>भारत रोजगार पोर्टल</p>
-</header>
+<a href="#main-content" class="skip-link">Skip to Main Content</a>
 
-<main>
+<div id="header-placeholder"></div>
+
+<main id="main-content" class="container section">
+
 <div class="contact-box">
 
-<h2>संपर्क फॉर्म</h2>
+<h1>संपर्क करें</h1>
 
 <div id="alertBox" aria-live="polite"></div>
 
 <form id="contactForm" novalidate>
 
-<!-- Honeypot Anti Spam -->
 <input type="text" id="website" style="display:none">
 
 <label for="name">नाम *</label>
-<input type="text" id="name" required aria-required="true">
+<input type="text" id="name" required>
 <div id="nameError" class="error-text"></div>
 
 <label for="email">ईमेल *</label>
-<input type="email" id="email" required aria-required="true">
+<input type="email" id="email" required>
 <div id="emailError" class="error-text"></div>
 
 <label for="phone">मोबाइल नंबर</label>
-<input type="tel" id="phone" pattern="[6-9]{1}[0-9]{9}">
+<input type="tel" id="phone">
 <div id="phoneError" class="error-text"></div>
 
 <label for="message">संदेश *</label>
-<textarea id="message" required aria-required="true"></textarea>
+<textarea id="message" required></textarea>
 <div id="messageError" class="error-text"></div>
 
 <button type="submit">संदेश भेजें</button>
@@ -51,97 +49,14 @@
 </form>
 
 </div>
+
 </main>
 
-<footer>
-© 2026 भारत रोजगार पोर्टल | All Rights Reserved
-</footer>
+<div id="footer-placeholder"></div>
 
-<script>
-const form = document.getElementById("contactForm");
-const alertBox = document.getElementById("alertBox");
+<script src="/bharat-rozgar-portal/js/layout.js"></script>
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    // Reset Errors
-    document.querySelectorAll(".error-text").forEach(el => el.textContent = "");
-    document.querySelectorAll("input, textarea").forEach(el => {
-        el.classList.remove("input-error");
-    });
-
-    alertBox.innerHTML = "";
-
-    const nameField = document.getElementById("name");
-    const emailField = document.getElementById("email");
-    const phoneField = document.getElementById("phone");
-    const messageField = document.getElementById("message");
-    const honeypot = document.getElementById("website").value;
-
-    const name = nameField.value.trim();
-    const email = emailField.value.trim();
-    const phone = phoneField.value.trim();
-    const message = messageField.value.trim();
-
-    let isValid = true;
-
-    // Honeypot Anti Spam
-    if(honeypot !== ""){
-        return;
-    }
-
-    // Name Validation
-    if(name === ""){
-        document.getElementById("nameError").textContent = "नाम आवश्यक है।";
-        nameField.classList.add("input-error");
-        nameField.focus();
-        isValid = false;
-    }
-
-    // Email Validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!email.match(emailPattern)){
-        document.getElementById("emailError").textContent = "सही ईमेल दर्ज करें।";
-        emailField.classList.add("input-error");
-        if(isValid) emailField.focus();
-        isValid = false;
-    }
-
-    // Phone Validation
-    const phonePattern = /^[6-9]\d{9}$/;
-    if(phone !== "" && !phone.match(phonePattern)){
-        document.getElementById("phoneError").textContent = "सही 10 अंकों का मोबाइल नंबर दर्ज करें।";
-        phoneField.classList.add("input-error");
-        if(isValid) phoneField.focus();
-        isValid = false;
-    }
-
-    // Message Validation
-    if(message === ""){
-        document.getElementById("messageError").textContent = "संदेश आवश्यक है।";
-        messageField.classList.add("input-error");
-        if(isValid) messageField.focus();
-        isValid = false;
-    }
-
-    if(!isValid){
-        alertBox.innerHTML = '<div class="error-box">कृपया फॉर्म में त्रुटियाँ सुधारें।</div>';
-        return;
-    }
-
-    // Simulated Processing
-    const submitBtn = form.querySelector("button");
-    submitBtn.disabled = true;
-    submitBtn.textContent = "भेजा जा रहा है...";
-
-    setTimeout(() => {
-        alertBox.innerHTML = '<div class="success-box">आपका संदेश सफलतापूर्वक प्राप्त हुआ। हम शीघ्र संपर्क करेंगे।</div>';
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = "संदेश भेजें";
-    }, 1200);
-});
-</script>
+<script src="/bharat-rozgar-portal/js/contact.js"></script>
 
 </body>
 </html>
