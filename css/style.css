@@ -232,6 +232,11 @@ button:focus {
   color: #fff;
 }
 
+.active-link {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* ========== RESPONSIVE ========== */
 
 @media (max-width: 1024px) {
