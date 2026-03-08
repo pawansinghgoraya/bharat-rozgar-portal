@@ -1,59 +1,82 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
-    <meta charset="UTF-8">
-    <title>Bharat Rozgar Portal | Government Jobs Updates</title>
 
-    <!-- Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Bharat Rozgar Portal | Government Jobs Updates</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Official Bharat Rozgar Portal providing latest government job notifications, admit cards and results updates.">
-    <meta name="keywords" content="Government Jobs, Sarkari Naukri, Admit Card, Results, Recruitment">
-    <meta name="author" content="Bharat Rozgar Portal">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0b3d91">
+<!-- SEO -->
+<meta name="description" content="Official Bharat Rozgar Portal providing latest government job notifications, admit cards and results updates.">
+<meta name="keywords" content="Government Jobs, Sarkari Naukri, Admit Card, Results, Recruitment">
+<meta name="author" content="Bharat Rozgar Portal">
 
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+<!-- Theme -->
+<meta name="theme-color" content="#0b3d91">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<!-- Favicon -->
+<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <!-- Skip to Main Content (Accessibility) -->
-    <a href="#maincontent" class="skip-link">Skip to Main Content</a>
+<!-- Skip Link -->
+<a href="#maincontent" class="skip-link">Skip to Main Content</a>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header" role="banner">
-        <div class="container">
+<!-- ================= HEADER ================= -->
+<header class="site-header" role="banner">
 
-            <h1 class="site-title">
-                <a href="index.html">Bharat Rozgar Portal</a>
-            </h1>
+<div class="container">
 
-            <nav class="main-nav" aria-label="Primary Navigation">
-                <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="admit_card.html">Admit Cards</a></li>
-                    <li><a href="results.html">Results</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
+<h1 class="site-title">
+<a href="index.html">Bharat Rozgar Portal</a>
+</h1>
 
-        </div>
-    </header>
+<nav class="main-nav" aria-label="Primary Navigation">
 
-    <!-- ================= MAIN ================= -->
-    <main id="maincontent" role="main" class="container">
+<ul>
+
+<li>
+<a href="index.html" aria-current="page">Home</a>
+</li>
+
+<li>
+<a href="jobs.html">Jobs</a>
+</li>
+
+<li>
+<a href="admit_card.html">Admit Cards</a>
+</li>
+
+<li>
+<a href="results.html">Results</a>
+</li>
+
+<li>
+<a href="pages/contact.html">Contact</a>
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+<main id="maincontent" role="main" class="container">
 
 <div class="layout-grid">
 
-<!-- SIDEBAR -->
+<!-- ===== SIDEBAR ===== -->
 
 <aside class="sidebar" aria-label="Job Filters">
 
@@ -66,15 +89,16 @@
 <input
 type="search"
 id="sidebarSearch"
-placeholder="Search jobs">
+name="search"
+placeholder="Search jobs by title">
 
 </div>
 
 <div class="filter-box">
 
-<label for="sidebarCategory">Department</label>
+<label for="sidebarCategory">Filter by Department</label>
 
-<select id="sidebarCategory">
+<select id="sidebarCategory" name="department">
 
 <option value="all">All Departments</option>
 <option value="Engineering">Engineering</option>
@@ -87,15 +111,20 @@ placeholder="Search jobs">
 
 </aside>
 
-<!-- MAIN CONTENT -->
+
+<!-- ===== MAIN CONTENT ===== -->
 
 <div class="main-content">
 
-<section aria-labelledby="latest-jobs-heading" class="section">
+<!-- Latest Jobs -->
 
-<h2 id="latest-jobs-heading">Latest Government Jobs</h2>
+<section class="section" aria-labelledby="latest-jobs-heading">
 
-<div 
+<h2 id="latest-jobs-heading">
+Latest Government Jobs
+</h2>
+
+<div
 id="job-list"
 class="job-grid"
 aria-live="polite"
@@ -106,15 +135,20 @@ aria-atomic="true">
 
 </section>
 
-<section aria-labelledby="recruitment-heading" class="section">
 
-<h2 id="recruitment-heading">Recruitment Notice</h2>
+<!-- Recruitment Notice -->
+
+<section class="section" aria-labelledby="recruitment-heading">
+
+<h2 id="recruitment-heading">
+Recruitment Notice
+</h2>
 
 <figure>
 
 <img
 src="assets/images/banner.jpg"
-alt="Government Recruitment Notification Banner"
+alt="Government recruitment notification banner"
 class="responsive-img">
 
 <figcaption class="visually-hidden">
@@ -131,29 +165,38 @@ Latest recruitment notification banner issued by government departments.
 
 </main>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="site-footer" role="contentinfo">
-        <div class="container">
 
-            <nav aria-label="Footer Navigation">
-                <ul class="footer-links">
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/disclaimer.html">Disclaimer</a></li>
-                    <li><a href="pages/privacy_policy.html">Privacy Policy</a></li>
-                    <li><a href="pages/terms-and-conditions.html">Terms & Conditions</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
+<!-- ================= FOOTER ================= -->
 
-            <p>
-                © 2026 Bharat Rozgar Portal. All Rights Reserved.
-            </p>
+<footer class="site-footer" role="contentinfo">
 
-        </div>
-    </footer>
+<div class="container">
 
-    <!-- JS -->
-    <script src="js/script.js" defer></script>
+<nav aria-label="Footer Navigation">
+
+<ul class="footer-links">
+
+<li><a href="pages/about.html">About Us</a></li>
+<li><a href="pages/disclaimer.html">Disclaimer</a></li>
+<li><a href="pages/privacy_policy.html">Privacy Policy</a></li>
+<li><a href="pages/terms-and-conditions.html">Terms & Conditions</a></li>
+<li><a href="pages/contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<p>
+© 2026 Bharat Rozgar Portal. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- JS -->
+<script src="js/script.js" defer></script>
 
 </body>
 </html>
