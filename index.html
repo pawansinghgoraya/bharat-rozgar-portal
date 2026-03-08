@@ -51,29 +51,30 @@
     <!-- ================= MAIN ================= -->
     <main id="maincontent" role="main" class="container">
 
-    <div class="layout-grid">
+<div class="layout-grid">
 
-<!-- ===================== SIDEBAR =============== -->
-        
-        <aside class="sidebar" aria-label="Job Filters">
+<!-- SIDEBAR -->
+
+<aside class="sidebar" aria-label="Job Filters">
 
 <h2 class="visually-hidden">Job Filters</h2>
 
 <div class="filter-box">
 
-<label for="searchInput">Search Jobs</label>
-<input 
+<label for="sidebarSearch">Search Jobs</label>
+
+<input
 type="search"
-id="searchInput"
+id="sidebarSearch"
 placeholder="Search jobs">
 
 </div>
 
 <div class="filter-box">
 
-<label for="categoryFilter">Department</label>
+<label for="sidebarCategory">Department</label>
 
-<select id="categoryFilter">
+<select id="sidebarCategory">
 
 <option value="all">All Departments</option>
 <option value="Engineering">Engineering</option>
@@ -86,65 +87,49 @@ placeholder="Search jobs">
 
 </aside>
 
-        <div class="main-content">
-        
+<!-- MAIN CONTENT -->
 
-        <!-- ===== Latest Jobs Section ===== -->
-        <section aria-labelledby="latest-jobs-heading" class="section">
-            <h2 id="latest-jobs-heading">Latest Government Jobs</h2>
+<div class="main-content">
 
-            <!-- Search -->
-            <div class="search-section">
-                <label for="searchInput">Search Jobs</label>
-                <input 
-                    type="search" 
-                    id="searchInput"
-                    name="search"
-                    placeholder="Search by title or department"
-                    aria-label="Search jobs by title or department">
-            </div>
+<section aria-labelledby="latest-jobs-heading" class="section">
 
-            <!-- Filter -->
-            <div class="filter-section">
-                <label for="categoryFilter">Filter by Department</label>
-                <select id="categoryFilter" name="department">
-                    <option value="all">All Departments</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="IT">IT</option>
-                    <option value="Banking">Banking</option>
-                </select>
-            </div>
+<h2 id="latest-jobs-heading">Latest Government Jobs</h2>
 
-            <!-- Job List -->
-            <div 
-                id="job-list" 
-                class="job-grid" 
-                aria-live="polite" 
-                aria-atomic="true">
-            </div>
+<div 
+id="job-list"
+class="job-grid"
+aria-live="polite"
+aria-atomic="true">
+</div>
 
-            <!-- Pagination -->
-            <nav id="pagination" aria-label="Job Pagination"></nav>
+<nav id="pagination" aria-label="Job Pagination"></nav>
 
-        </section>
+</section>
 
-        <!-- ===== Recruitment Notice ===== -->
-        <section aria-labelledby="recruitment-heading" class="section">
-            <h2 id="recruitment-heading">Recruitment Notice</h2>
+<section aria-labelledby="recruitment-heading" class="section">
 
-            <figure>
-                <img 
-                    src="assets/images/banner.jpg" 
-                    alt="Government Recruitment Notification Banner"
-                    class="responsive-img">
-                <figcaption class="visually-hidden">
-                    Latest recruitment notification banner issued by government departments.
-                </figcaption>
-            </figure>
+<h2 id="recruitment-heading">Recruitment Notice</h2>
 
-        </section>
+<figure>
 
-    </main>
+<img
+src="assets/images/banner.jpg"
+alt="Government Recruitment Notification Banner"
+class="responsive-img">
+
+<figcaption class="visually-hidden">
+Latest recruitment notification banner issued by government departments.
+</figcaption>
+
+</figure>
+
+</section>
+
+</div>
+
+</div>
+
+</main>
 
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer" role="contentinfo">
