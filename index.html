@@ -51,6 +51,44 @@
     <!-- ================= MAIN ================= -->
     <main id="maincontent" role="main" class="container">
 
+    <div class="layout-grid">
+
+<!-- ===================== SIDEBAR =============== -->
+        
+        <aside class="sidebar" aria-label="Job Filters">
+
+<h2 class="visually-hidden">Job Filters</h2>
+
+<div class="filter-box">
+
+<label for="searchInput">Search Jobs</label>
+<input 
+type="search"
+id="searchInput"
+placeholder="Search jobs">
+
+</div>
+
+<div class="filter-box">
+
+<label for="categoryFilter">Department</label>
+
+<select id="categoryFilter">
+
+<option value="all">All Departments</option>
+<option value="Engineering">Engineering</option>
+<option value="IT">IT</option>
+<option value="Banking">Banking</option>
+
+</select>
+
+</div>
+
+</aside>
+
+        <div class="main-content">
+        
+
         <!-- ===== Latest Jobs Section ===== -->
         <section aria-labelledby="latest-jobs-heading" class="section">
             <h2 id="latest-jobs-heading">Latest Government Jobs</h2>
